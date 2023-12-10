@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AcariPlanillaAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7bf9e486481909ad6f421086a957693dd86075d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AcariPlanillaAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AcariPlanillaAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
