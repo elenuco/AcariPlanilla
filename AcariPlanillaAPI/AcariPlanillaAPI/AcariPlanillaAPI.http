@@ -1,0 +1,6 @@
+@AcariPlanillaAPI_HostAddress = http://localhost:5004
+
+GET {{AcariPlanillaAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

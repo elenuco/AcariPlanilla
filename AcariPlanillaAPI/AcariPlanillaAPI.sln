@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcariPlanillaAPI", "AcariPlanillaAPI\AcariPlanillaAPI.csproj", "{45FB4647-0D5D-4E16-AA8F-48BC2C88638E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45FB4647-0D5D-4E16-AA8F-48BC2C88638E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45FB4647-0D5D-4E16-AA8F-48BC2C88638E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45FB4647-0D5D-4E16-AA8F-48BC2C88638E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45FB4647-0D5D-4E16-AA8F-48BC2C88638E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14214C77-F01E-4B78-9A9C-1156E911BE65}
+	EndGlobalSection
+EndGlobal
