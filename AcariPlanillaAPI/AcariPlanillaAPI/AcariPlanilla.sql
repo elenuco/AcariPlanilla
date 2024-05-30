@@ -5,7 +5,7 @@ CREATE TABLE Usuarios
     UserId INT PRIMARY KEY IDENTITY(1,1),
     UserName NVARCHAR(50) NOT NULL,
     PasswordHash NVARCHAR(255) NOT NULL,
-    -- Agrega más campos según sea necesario
+    -- Agrega mï¿½s campos segï¿½n sea necesario
 );
 CREATE TABLE Boletas
 (
@@ -57,8 +57,8 @@ CREATE PROCEDURE SP_CrearBoleta
     @UserId INT,
     @CodigoEmpleado NVARCHAR(20),
     @Corte DATE,
-    @SalarioBase DECIMAL(18, 2),  -- Agregamos un nuevo parámetro para el salario base
-    @DescuentoISSS DECIMAL(18, 2) OUTPUT,  -- Cambiamos a un parámetro de salida para el descuento ISSS
+    @SalarioBase DECIMAL(18, 2),  -- Agregamos un nuevo parï¿½metro para el salario base
+    @DescuentoISSS DECIMAL(18, 2) OUTPUT,  -- Cambiamos a un parï¿½metro de salida para el descuento ISSS
     @DescuentoAFP DECIMAL(18, 2) OUTPUT,
     @DescuentoRenta DECIMAL(18, 2) OUTPUT,
     @SueldoNeto DECIMAL(18, 2) OUTPUT
@@ -67,14 +67,14 @@ BEGIN
     DECLARE @AFP_Porcentaje DECIMAL(5, 2) = 0.0725;  -- Porcentaje de descuento AFP
     DECLARE @ISSS_Porcentaje DECIMAL(5, 2) = 0.03;   -- Porcentaje de descuento ISSS
     DECLARE @Renta_Porcentaje DECIMAL(5, 2) = 0.1;   -- Porcentaje de descuento Renta
-    DECLARE @ExcesoRenta DECIMAL(18, 2) = @SalarioBase - 472.00;  -- Límite de salario para Renta
+    DECLARE @ExcesoRenta DECIMAL(18, 2) = @SalarioBase - 472.00;  -- Lï¿½mite de salario para Renta
 
-    -- Cálculo de descuentos
+    -- Cï¿½lculo de descuentos
     SET @DescuentoISSS = CASE WHEN @SalarioBase * @ISSS_Porcentaje > 30.00 THEN 30.00 ELSE @SalarioBase * @ISSS_Porcentaje END;
     SET @DescuentoAFP = @SalarioBase * @AFP_Porcentaje;
     SET @DescuentoRenta = CASE WHEN @SalarioBase <= 472.00 THEN 0.00 ELSE @ExcesoRenta * @Renta_Porcentaje END;
 
-    -- Cálculo de Sueldo Neto
+    -- Cï¿½lculo de Sueldo Neto
     SET @SueldoNeto = @SalarioBase - @DescuentoISSS - @DescuentoAFP - @DescuentoRenta;
 
     -- Insertar la boleta en la tabla Boletas
@@ -93,11 +93,11 @@ BEGIN
 	SELECT * FROM Usuarios WHERE UserName = @UserName and CONVERT(varchar(50), DECRYPTBYPASSPHRASE(@Patron, PasswordHash)) = @PasswordHash
 END
 
-SP_AgregarUsuario 'NombreUsuario2', 'HashContraseña2', 'Kotov'
+SP_AgregarUsuario 'NombreUsuario2', 'HashContraseï¿½a2', 'Kotov'
 SELECT * FROM Usuarios
 
 DECLARE @UserId INT = 1; -- Reemplaza con el ID del usuario
-DECLARE @CodigoEmpleado NVARCHAR(20) = 'E001'; -- Reemplaza con el código del empleado
+DECLARE @CodigoEmpleado NVARCHAR(20) = 'E001'; -- Reemplaza con el cï¿½digo del empleado
 DECLARE @Corte DATE = '2023-12-01'; -- Reemplaza con la fecha de corte
 DECLARE @SalarioBase DECIMAL(18, 2) = 360.00; 
 DECLARE @DescuentoISSS DECIMAL(18, 2) = 0; -- Reemplaza con el valor del descuento ISSS si es necesario
@@ -133,10 +133,10 @@ BEGIN
     INSERT INTO Boletas (UserId, CodigoEmpleado, Corte, DescuentoISSS, DescuentoAFP, DescuentoRenta, SueldoNeto)
     VALUES (@UserId, @CodigoEmpleado, @Corte, @DescuentoISSS, @DescuentoAFP, @DescuentoRenta, @SueldoNeto);
 
-    -- Obtener el ID de la boleta recién insertada
+    -- Obtener el ID de la boleta reciï¿½n insertada
     SET @BoletaId = SCOPE_IDENTITY();
 
-    -- Registrar en el historial de actualización
+    -- Registrar en el historial de actualizaciï¿½n
     INSERT INTO HistorialActualizacionPlanillas (BoletaId, RutaDocumento, FechaActualizacion)
     VALUES (@BoletaId, @RutaDocumento, GETDATE());
 END;
